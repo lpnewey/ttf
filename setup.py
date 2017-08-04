@@ -29,24 +29,24 @@ test_requirements = [
 ]
 
 setup(
-    name='tff',
+    name='ttf',
     version='0.1.0',
     description="Ask people for information, through twitter, during a humanitarian response effort.",
     long_description=readme + '\n\n' + history,
     author="Fedor Baart",
     author_email='fedor.baart@deltares.nl',
-    url='tffps://github.com/SiggyF/tff',
-    packages=find_packages(include=['tff']),
+    url='https://github.com/SiggyF/ttf',
+    packages=find_packages(include=['ttf']),
     entry_points={
         'console_scripts': [
-            'tff=tff.cli:cli'
+            'ttf=ttf.cli:cli'
         ]
     },
     include_package_data=True,
     install_requires=requirements,
     license="GNU General Public License v3",
     zip_safe=False,
-    keywords='tff',
+    keywords='ttf',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',

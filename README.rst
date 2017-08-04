@@ -3,18 +3,18 @@ Humanitary Twitter Team
 =======================
 
 
-.. image:: https://img.shields.io/pypi/v/tff.svg
-        :target: https://pypi.python.org/pypi/tff
+.. image:: https://img.shields.io/pypi/v/ttf.svg
+        :target: https://pypi.python.org/pypi/ttf
 
-.. image:: https://img.shields.io/travis/SiggyF/tff.svg
-        :target: https://travis-ci.org/SiggyF/tff
+.. image:: https://img.shields.io/travis/SiggyF/ttf.svg
+        :target: https://travis-ci.org/SiggyF/ttf
 
-.. image:: https://readthedocs.org/projects/tff/badge/?version=latest
-        :target: https://tff.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/ttf/badge/?version=latest
+        :target: https://ttf.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/SiggyF/tff/shield.svg
-     :target: https://pyup.io/repos/github/SiggyF/tff/
+.. image:: https://pyup.io/repos/github/SiggyF/ttf/shield.svg
+     :target: https://pyup.io/repos/github/SiggyF/ttf/
      :alt: Updates
 
 
@@ -22,7 +22,7 @@ Ask people for information, through twitter, during a humanitarian response effo
 
 
 * Free software: GNU General Public License v3
-* Documentation: https://tff.readthedocs.io.
+* Documentation: https://ttf.readthedocs.io.
 
 
 Features
