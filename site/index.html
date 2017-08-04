@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Vuetify</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet" type="text/css"></link>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+  </head>
+  <body>
+    <div id="app">
+      <v-app>
+        <v-navigation-drawer
+          persistent
+          :mini-variant="miniVariant"
+          :clipped="clipped"
+          v-model="drawer"
+          >
+          <v-list>
+            <v-list-tile
+              v-for="(item, i) in items"
+              :key="i"
+              >
+              <v-list-tile value="true">
+                <v-list-tile-action>
+                  <v-icon light v-html="item.icon"></v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                  <v-list-tile-title v-text="item.title"></v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+            </v-list-tile>
+          </v-list>
+        </v-navigation-drawer>
+        <v-toolbar>
+          <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+          <v-btn
+            icon
+            @click.native.stop="clipped = !clipped"
+            >
+            <v-icon>web</v-icon>
+          </v-btn>
+          <v-btn
+            icon
+            @click.native.stop="fixed = !fixed"
+            >
+            <v-icon>remove</v-icon>
+          </v-btn>
+          <v-toolbar-title v-text="title"></v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn
+            icon
+            @click.native.stop="rightDrawer = !rightDrawer"
+            >
+            <v-icon>menu</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <main>
+          <v-container fluid>
+            <page></page>
+          </v-container>
+        </main>
+        <v-navigation-drawer
+          temporary
+          :right="right"
+          v-model="rightDrawer"
+          >
+          <v-list>
+            <v-list-tile>
+              <v-list-tile @click.native="right = !right">
+                <v-list-tile-action>
+                  <v-icon light>compare_arrows</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
+              </v-list-tile>
+            </v-list-tile>
+          </v-list>
+        </v-navigation-drawer>
+        <v-footer :fixed="fixed">
+          <span>&copy; 2017</span>
+        </v-footer>
+      </v-app>
+    </div>
+
+    <script type="text/x-template" id="twitter-map">
+      <v-layout row fluid>
+        <v-flex row xs12>
+          <v-card class="ma-3">
+            <v-card-title primary-title>
+              <h3 class="headline mb-0">Current twitter workers</h3>
+            </v-card-title>
+            <div id="map"></div>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </script>
+
+
+    <script type="text/x-template" id="task-list">
+      <v-layout row wrap child-flex-sm>
+        <v-flex xs4 v-for="task in tasks" :key="task.id" >
+          <v-card class="ma-3">
+            <v-card-media :src="'static/images/' + task.img" height="200px">
+            </v-card-media>
+            <v-card-title primary-title>
+              <div>
+                <h3 class="headline mb-0">{{ task.title }}</h3>
+                <div>{{ task.description }}</div>
+              </div>
+            </v-card-title>
+            <v-card-actions>
+              <v-btn flat class="orange--text">Assign</v-btn>
+              <v-btn flat class="orange--text">Pickup</v-btn>
+              <v-menu offset-y>
+                <v-btn flat class="orange--text" slot="activator">Dropdown</v-btn>
+                <v-list>
+                  <v-list-tile>
+                    <v-list-tile-title>option 1</v-list-tile-title>
+                  </v-list-tile>
+                  <v-list-tile>
+                    <v-list-tile-title>option 2</v-list-tile-title>
+                  </v-list-tile>
+                  <v-list-tile>
+                    <v-list-tile-title>option 3</v-list-tile-title>
+                  </v-list-tile>
+                </v-list>
+              </v-menu>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </script>
+    <script type="text/x-template" id="page">
+      <div>
+        <twitter-map></twitter-map>
+        <task-list></task-list>
+      </div>
+    </script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+    <script src="script.js">
+    </script>
+  </body>
+</html>
