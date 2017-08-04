@@ -7,4 +7,4 @@ __email__ = 'fedor.baart@deltares.nl'
 __version__ = '0.1.0'
 
 
-from .tff import login, QueuedListener, locations
+from .ttf import login, QueuedListener, locations

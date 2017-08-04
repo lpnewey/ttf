@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""Console script for tff."""
+"""Console script for ttf."""
 
 import logging
 import time
@@ -11,7 +11,7 @@ import shapely.geometry
 
 import flask
 
-import tff
+import ttf
 from .server import app
 
 logger = logging.getLogger(__name__)
@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 @click.group()
 def cli(args=None):
-    """Console script for tff."""
+    """Console script for ttf."""
     click.echo("welcome to the Humanitarian Twitter Team software")
     logging.basicConfig()
     logger.setLevel(logging.DEBUG)
@@ -28,12 +28,12 @@ def cli(args=None):
 @cli.command()
 def stream(args=None):
     logger.info("Searching for twitter messages near HOT locations")
-    api = tff.login()
+    api = ttf.login()
     me = api.me()
     logger.info("logged in using user %s", me.name)
-    listener = tff.QueuedListener()
+    listener = ttf.QueuedListener()
     stream = tweepy.Stream(api.auth, listener)
-    extent = shapely.geometry.asShape(tff.locations[1]).buffer(0.05).bounds
+    extent = shapely.geometry.asShape(ttf.locations[1]).buffer(0.05).bounds
     stream.filter(locations=extent, track=['#ttf'])
     # stream.filter(track=['flood', 'overstroming'], async=True)
     time.sleep(10)
@@ -41,12 +41,12 @@ def stream(args=None):
 @cli.command()
 def serve(args=None):
     """serve a website that allows you to show current tweets"""
-    logger.debug("running at tffp://127.0.0.1:5000")
-    api = tff.login() # app="tff")
+    logger.debug("running at http://127.0.0.1:5000")
+    api = ttf.login() # app="tff")
     app.api = api
-    listener = tff.QueuedListener()
+    listener = ttf.QueuedListener()
     stream = tweepy.Stream(api.auth, listener)
-    extent = shapely.geometry.asShape(tff.locations[1]).buffer(1).bounds
+    extent = shapely.geometry.asShape(ttf.locations[1]).buffer(1).bounds
     stream.filter(locations=extent, track=['#ttf'], async=True)
     app.stream = stream
     app.listener = listener
