@@ -30,7 +30,7 @@ Features
 
 This is an example screenshot of the application.
 
-.. screenshot:: https://github.com/openearth/ttf/raw/master/docs/screenshot.png
+.. image:: https://github.com/openearth/ttf/raw/master/docs/screenshot.png
 
 Credits
 ---------
