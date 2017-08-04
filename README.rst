@@ -1,5 +1,5 @@
 =======================
-Humanitary Twitter Team
+Twitter Task Force
 =======================
 
 
@@ -28,7 +28,8 @@ Ask people for information, through twitter, during a humanitarian response effo
 Features
 --------
 
-* TODO
+This is an example screenshot of the application.
+.. screenshot:: https://github.com/openearth/ttf/raw/master/docs/screenshot.png
 
 Credits
 ---------
